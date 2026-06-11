@@ -119,7 +119,7 @@ Set:
 - `VITE_API_URL=https://your-render-api.onrender.com`
 - `VITE_WS_URL=wss://your-render-api.onrender.com/ws/live`
 
-## Hackathon Demo Flow
+## Demo Flow
 
 1. Open the landing page and enter Command Center.
 2. Watch trains move and sensors stream every 2 seconds.
