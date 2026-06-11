@@ -2,7 +2,7 @@
 
 Autonomous Railway Intelligence Operating System inspired by the Shinkansen safety philosophy.
 
-This is a complete hackathon-ready product prototype with a React/Vite frontend, FastAPI backend, SQLite persistence, live WebSockets, anomaly detection, digital twin scenarios, incident memory, future simulator, and PDF black-box reports.
+This is a  product prototype with a React/Vite frontend, FastAPI backend, SQLite persistence, live WebSockets, anomaly detection, digital twin scenarios, incident memory, future simulator, and PDF black-box reports.
 
 ## Features
 
