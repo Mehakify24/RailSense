@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #060b10;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #060b10;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(0, 212, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 18%, rgba(255, 77, 77, 0.13), transparent 30%),
+    linear-gradient(135deg, rgba(0, 230, 118, 0.08), transparent 36%),
+    #060b10;
+}
+
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.21;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.nav-button,
+.mobile-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  transition: 180ms ease;
+}
+
+.nav-button {
+  width: 100%;
+  padding: 0.82rem 0.95rem;
+}
+
+.mobile-tab {
+  white-space: nowrap;
+  padding: 0.65rem 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-button:hover,
+.mobile-tab:hover,
+.nav-button.active,
+.mobile-tab.active {
+  border-color: rgba(0, 212, 255, 0.32);
+  background: rgba(0, 212, 255, 0.12);
+  color: #f5f7fa;
+  box-shadow: 0 0 32px rgba(0, 212, 255, 0.12);
+}
+
+.primary-button,
+.ghost-button,
+.scenario-button,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 42px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 180ms ease;
+}
+
+.primary-button {
+  border: 1px solid rgba(0, 212, 255, 0.45);
+  background: linear-gradient(135deg, #00d4ff, #00e676);
+  color: #031015;
+  padding: 0.78rem 1rem;
+  box-shadow: 0 0 38px rgba(0, 212, 255, 0.2);
+}
+
+.ghost-button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fa;
+  padding: 0.78rem 1rem;
+}
+
+.scenario-button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+  color: #f5f7fa;
+  padding: 1rem;
+}
+
+.scenario-button:hover {
+  border-color: rgba(255, 77, 77, 0.45);
+  background: rgba(255, 77, 77, 0.12);
+  box-shadow: 0 0 34px rgba(255, 77, 77, 0.16);
+}
+
+.chip {
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  color: #cbd5e1;
+  padding: 0.35rem 0.72rem;
+  font-size: 0.86rem;
+}
+
+.chip.active {
+  border-color: rgba(0, 212, 255, 0.42);
+  background: rgba(0, 212, 255, 0.13);
+  color: #00d4ff;
+}
+
+.route-line {
+  stroke: url(#routeGlow);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.72;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.45));
+  stroke-dasharray: 10 8;
+  animation: routeFlow 1.6s linear infinite;
+}
+
+.sensor-pulse {
+  fill: rgba(0, 212, 255, 0.16);
+  stroke: rgba(0, 212, 255, 0.48);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.station-label {
+  position: absolute;
+  transform: translate(12px, -30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(6, 11, 16, 0.72);
+  padding: 0.32rem 0.5rem;
+  color: #f5f7fa;
+  font-size: 0.76rem;
+  backdrop-filter: blur(12px);
+}
+
+.train-dot {
+  position: absolute;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(0, 230, 118, 0.48);
+  border-radius: 50%;
+  background: #06130d;
+  color: #00e676;
+  box-shadow: 0 0 26px rgba(0, 230, 118, 0.33);
+}
+
+.incident-marker {
+  position: absolute;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 77, 77, 0.7);
+  border-radius: 50%;
+  background: #2a0808;
+  color: #ff4d4d;
+  font-weight: 800;
+  box-shadow: 0 0 32px rgba(255, 77, 77, 0.48);
+  animation: alertBeat 1s ease-in-out infinite;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.flow-node {
+  width: 105px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(0, 212, 255, 0.13);
+  color: #f5f7fa;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.13);
+}
+
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    r: 16;
+    opacity: 0.35;
+  }
+}
+
+@keyframes alertBeat {
+  50% {
+    transform: translate(-50%, -50%) scale(1.18);
+  }
+}
+
+@media (max-width: 640px) {
+  .station-label {
+    font-size: 0.66rem;
+    transform: translate(8px, -28px);
+  }
+
+  .train-dot {
+    width: 32px;
+    height: 32px;
+  }
+}

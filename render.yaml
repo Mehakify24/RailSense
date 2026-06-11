@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: shinkansen-brain-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./shinkansen_brain.db
+      - key: CORS_ORIGINS
+        value: https://your-vercel-domain.vercel.app
